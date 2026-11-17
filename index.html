@@ -4,17 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bautizo - Oliver Ferran</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Pinyon+Script&family=Montserrat:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Pinyon+Script&family=Montserrat:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
             /* Paleta Verde y Beige */
             --bg-pearl: #F5EFE3;
-            --accent: #3F5234;       /* Verde oliva profundo */
-            --accent-light: #5A7048;
-            --text-dark: #2B3326;
-            --text-muted: #6A6B58;
-            --black-theme: #1A2217;
-            --beige: #CDBF9E;
+            --accent: #8FA382;       /* Verde salvia (fondos, botones, sello) */
+            --accent-light: #A4B596;
+            --accent-text: #5F7552;  /* Salvia más profundo para textos sobre fondo claro */
+            --text-dark: #3A4433;
+            --text-muted: #747866;
+            --black-theme: #5E7051;  /* Salvia oscuro para secciones de contraste */
+            --beige: #F3EBD8;
             --transition-smooth: cubic-bezier(0.25, 1, 0.5, 1);
         }
 
@@ -31,7 +32,7 @@
             position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px;
             background-color: var(--accent); border-radius: 50%;
             display: flex; justify-content: center; align-items: center;
-            box-shadow: 0 10px 25px rgba(63, 82, 52, 0.4); z-index: 2000; cursor: pointer;
+            box-shadow: 0 10px 25px rgba(143, 163, 130, 0.4); z-index: 2000; cursor: pointer;
             opacity: 0; visibility: hidden; transform: translateY(20px) scale(0.9);
             transition: all 0.6s var(--transition-smooth); border: none; outline: none;
         }
@@ -50,15 +51,16 @@
 
         .envelope-text-container {
             text-align: center; margin-bottom: 50px; animation: floatText 4s ease-in-out infinite;
-            position: relative; z-index: 10;
+            position: relative; z-index: 10; padding: 0 15px;
         }
         .env-tag {
-            font-family: 'Cinzel', serif; font-size: 14px; letter-spacing: 8px;
-            text-transform: uppercase; color: var(--accent); font-weight: 500;
+            font-family: 'Cinzel', serif; font-size: 18px; letter-spacing: 8px;
+            text-transform: uppercase; color: var(--accent-text); font-weight: 600;
         }
         .env-title {
-            font-family: 'Pinyon Script', cursive; font-size: 80px;
-            color: var(--accent); line-height: 1.2; margin-top: 5px;
+            font-family: 'Cinzel', serif; font-size: clamp(34px, 10vw, 58px);
+            color: var(--accent-text); line-height: 1.2; margin-top: 12px;
+            font-weight: 500; letter-spacing: 4px; text-transform: uppercase; font-style: normal;
         }
 
         .envelope-wrapper { position: relative; cursor: pointer; transition: transform 0.6s var(--transition-smooth); z-index: 10; }
@@ -66,7 +68,7 @@
 
         .envelope {
             position: relative; width: 320px; height: 210px; background-color: #FFFDF8;
-            border-radius: 2px; box-shadow: 0 15px 35px rgba(63,82,52,0.18); border: 1px solid rgba(0,0,0,0.05);
+            border-radius: 2px; box-shadow: 0 15px 35px rgba(143,163,130,0.18); border: 1px solid rgba(0,0,0,0.05);
         }
         .envelope::before {
             content: ''; position: absolute; top: 0; right: 0;
@@ -90,14 +92,14 @@
         .wax-seal {
             position: absolute; top: 90px; left: 50%; transform: translateX(-50%);
             width: 45px; height: 45px; background-color: var(--accent); border-radius: 50%; z-index: 5;
-            box-shadow: inset 0 2px 4px rgba(255,255,255,0.2), 0 4px 15px rgba(63, 82, 52, 0.4);
+            box-shadow: inset 0 2px 4px rgba(255,255,255,0.2), 0 4px 15px rgba(143, 163, 130, 0.4);
             transition: opacity 0.5s ease 0.1s, transform 0.5s ease;
         }
         .envelope-wrapper.open .wax-seal { opacity: 0; transform: translateX(-50%) scale(0.5); pointer-events: none; }
 
         .hint-text {
             text-align: center; font-size: 11px; font-weight: 500; text-transform: uppercase;
-            letter-spacing: 4px; color: var(--accent); margin-top: 40px; animation: pulse 2.5s infinite;
+            letter-spacing: 4px; color: var(--accent-text); margin-top: 40px; animation: pulse 2.5s infinite;
             background: rgba(255,255,255,0.7); padding: 5px 15px; border-radius: 20px;
         }
 
@@ -108,7 +110,7 @@
         .sparkle-container { position: relative; display: inline-block; }
         .sparkle {
             position: absolute; width: 20px; height: 20px;
-            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C12 5.5 16.5 10 22 10C16.5 10 12 14.5 12 20C12 14.5 7.5 10 2 10C7.5 10 12 5.5 12 0Z" fill="%233F5234"/></svg>') center/contain no-repeat;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C12 5.5 16.5 10 22 10C16.5 10 12 14.5 12 20C12 14.5 7.5 10 2 10C7.5 10 12 5.5 12 0Z" fill="%235F7552"/></svg>') center/contain no-repeat;
             animation: twinkle 2s infinite ease-in-out; pointer-events: none; z-index: 10;
         }
         .sparkle.s-light {
@@ -176,16 +178,22 @@
         .bg-navy .info-title, .bg-black .info-title, .bg-navy .tag-line, .bg-black .tag-line { color: var(--beige); }
         .bg-navy .info-data, .bg-navy .title-script, .bg-black .info-data, .bg-black .title-script,
         .bg-navy .info-data-script, .bg-black .info-data-script { color: #ffffff; }
-        .bg-navy .body-serif, .bg-black .body-serif { color: #E3DCC8; }
+        .bg-navy .body-serif, .bg-black .body-serif { color: #FFFDF8; }
 
         /* Tipografía editorial */
         .tag-line {
             font-family: 'Cinzel', serif; font-size: 14px; letter-spacing: 5px;
-            text-transform: uppercase; color: var(--accent); margin-bottom: 25px; font-weight: 600;
+            text-transform: uppercase; color: var(--accent-text); margin-bottom: 25px; font-weight: 600;
         }
+        /* "Mi Bautizo" más grande en el hero */
+        .tag-line.tag-hero {
+            font-size: 24px; letter-spacing: 8px; margin-bottom: 30px;
+        }
+        /* Nombre principal: sin cursiva, serif con presencia */
         .title-script {
-            font-family: 'Pinyon Script', cursive; font-size: 78px; color: var(--text-dark);
-            margin-bottom: 20px; line-height: 1.1; font-weight: 400;
+            font-family: 'Cinzel', serif; font-size: clamp(38px, 11vw, 72px); color: var(--text-dark);
+            margin-bottom: 25px; line-height: 1.2; font-weight: 500;
+            letter-spacing: 4px; text-transform: uppercase; font-style: normal;
         }
         .body-serif {
             font-family: 'Cormorant Garamond', serif; font-size: 23px; line-height: 1.6;
@@ -193,17 +201,18 @@
         }
         .info-title {
             font-family: 'Cinzel', serif; font-size: 14px; letter-spacing: 3px; line-height: 1.4;
-            text-transform: uppercase; color: var(--accent); margin-bottom: 12px; font-weight: 600;
+            text-transform: uppercase; color: var(--accent-text); margin-bottom: 12px; font-weight: 600;
         }
         .info-data {
             font-family: 'Cormorant Garamond', serif; font-size: 32px; color: var(--text-dark);
             margin-bottom: 5px; font-weight: 500; line-height: 1.3;
         }
+        /* Nombres de padres y padrinos: sin cursiva */
         .info-data-script {
-            font-family: 'Pinyon Script', cursive; font-size: 42px; color: var(--text-dark);
-            margin-bottom: 8px; font-weight: 400; line-height: 1.3;
+            font-family: 'Cormorant Garamond', serif; font-size: 34px; color: var(--text-dark);
+            margin-bottom: 8px; font-weight: 600; line-height: 1.3; letter-spacing: 1px; font-style: normal;
         }
-        .amp { font-family: 'Cinzel', serif; font-size: 20px; color: var(--accent); margin: 10px 0; }
+        .amp { font-family: 'Cinzel', serif; font-size: 20px; color: var(--accent-text); margin: 10px 0; }
         .bg-navy .amp, .bg-black .amp { color: var(--beige); }
 
         /* Botones */
@@ -213,8 +222,8 @@
             text-transform: uppercase; text-decoration: none; border: none; cursor: pointer; border-radius: 2px;
             transition: all 0.4s ease; margin-top: 30px; position: relative; z-index: 5;
         }
-        .btn-solid:hover { background-color: var(--accent-light); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(63, 82, 52, 0.25); }
-        .bg-navy .btn-solid, .bg-black .btn-solid { background-color: #ffffff; color: var(--accent); }
+        .btn-solid:hover { background-color: var(--accent-light); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(143, 163, 130, 0.25); }
+        .bg-navy .btn-solid, .bg-black .btn-solid { background-color: #ffffff; color: var(--accent-text); }
         .bg-navy .btn-solid:hover, .bg-black .btn-solid:hover { background-color: #F5EFE3; box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2); }
 
         /* Calendario */
@@ -223,18 +232,18 @@
             border-radius: 2px; box-shadow: 0 15px 45px rgba(0,0,0,0.15); position: relative; z-index: 2;
         }
         .calendar-month {
-            font-family: 'Cinzel', serif; font-size: 20px; color: var(--accent); text-transform: uppercase;
+            font-family: 'Cinzel', serif; font-size: 20px; color: var(--accent-text); text-transform: uppercase;
             letter-spacing: 4px; margin-bottom: 30px; font-weight: 600;
         }
         .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; width: 100%; }
-        .cal-header { font-size: clamp(10px, 3vw, 12px); font-weight: 500; color: var(--accent-light); padding-bottom: 12px; }
+        .cal-header { font-size: clamp(10px, 3vw, 12px); font-weight: 500; color: var(--accent-text); padding-bottom: 12px; }
         .cal-day {
             font-family: 'Cormorant Garamond', serif; font-size: clamp(16px, 4.5vw, 20px); font-weight: 400;
             color: var(--text-dark); display: flex; justify-content: center; align-items: center; aspect-ratio: 1;
         }
         .cal-day.active {
             background-color: var(--accent); color: #fff; border-radius: 50%; font-weight: 500;
-            box-shadow: 0 4px 12px rgba(63, 82, 52, 0.35);
+            box-shadow: 0 4px 12px rgba(143, 163, 130, 0.35);
         }
 
         /* Cuenta atrás */
@@ -287,19 +296,25 @@
         .ticket-card::before { left: -12px; }
         .ticket-card::after { right: -12px; }
 
+        /* Despedida */
+        .closing-sign {
+            font-family: 'Cinzel', serif; font-size: clamp(20px, 6vw, 30px); color: var(--accent-text);
+            line-height: 1.5; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; font-style: normal;
+        }
+
         /* Footer */
         .invytia-footer { width: 100%; padding: 40px 20px 80px 20px; text-align: center; background-color: var(--black-theme); position: relative; z-index: 2; }
-        .invytia-footer-text { font-size: 10px; font-weight: 500; letter-spacing: 4px; text-transform: uppercase; color: var(--beige); opacity: 0.8; }
+        .invytia-footer-text { font-size: 10px; font-weight: 500; letter-spacing: 4px; text-transform: uppercase; color: var(--beige); opacity: 0.9; }
 
         /* Iconos */
-        .section-icon { width: 34px; height: 34px; margin-bottom: 18px; stroke: var(--accent); fill: none; stroke-width: 1.4; position: relative; z-index: 2; }
+        .section-icon { width: 34px; height: 34px; margin-bottom: 18px; stroke: var(--accent-text); fill: none; stroke-width: 1.4; position: relative; z-index: 2; }
         .bg-navy .section-icon, .bg-black .section-icon { stroke: #ffffff; }
 
         /* Destellos flotantes globales */
         #global-sparkles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1500; overflow: hidden; }
         .float-sparkle {
             position: absolute; bottom: -30px; width: 10px; height: 10px;
-            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C12 5.5 16.5 10 22 10C16.5 10 12 14.5 12 20C12 14.5 7.5 10 2 10C7.5 10 12 5.5 12 0Z" fill="%23B8A57A"/></svg>') center/contain no-repeat;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C12 5.5 16.5 10 22 10C16.5 10 12 14.5 12 20C12 14.5 7.5 10 2 10C7.5 10 12 5.5 12 0Z" fill="%23A4B596"/></svg>') center/contain no-repeat;
             opacity: 0; animation-name: floatUp; animation-timing-function: ease-in-out; animation-iteration-count: infinite;
         }
         @keyframes floatUp {
@@ -312,11 +327,12 @@
 
         /* Responsive */
         @media (max-width: 400px) {
-            .env-title { font-size: 62px; }
-            .title-script { font-size: 60px; }
+            .env-tag { font-size: 16px; letter-spacing: 6px; }
+            .tag-line.tag-hero { font-size: 20px; letter-spacing: 6px; }
+            .title-script { letter-spacing: 2px; }
             .section-block { padding: 70px 15px; }
             .info-data { font-size: 28px; }
-            .info-data-script { font-size: 34px; }
+            .info-data-script { font-size: 28px; }
             .map-box { height: 260px; }
             .location-photo { height: 200px; }
             .envelope { width: 300px; height: 195px; }
@@ -362,7 +378,7 @@
         <section class="section-block bg-pearl">
             <svg class="section-icon anim-element anim-zoom delay-1" viewBox="0 0 24 24"><path d="M12 2l2.4 6.9L21 9l-5.5 4.3L17 21l-5-3.9L7 21l1.5-7.7L3 9l6.6-.1z" stroke-linejoin="round"/></svg>
 
-            <div class="anim-element anim-fade-up delay-1 tag-line sparkle-container">
+            <div class="anim-element anim-fade-up delay-1 tag-line tag-hero sparkle-container">
                 Mi Bautizo
                 <div class="sparkle" style="top:-10px; right:-20px;"></div>
                 <div class="sparkle" style="bottom:-5px; left:-15px; animation-delay: 1s;"></div>
@@ -371,7 +387,7 @@
             <h1 class="anim-element anim-zoom delay-2 title-script">Oliver Ferran</h1>
 
             <p class="anim-element anim-fade-up delay-4 body-serif" style="font-size: 21px;">
-                Con el corazón lleno de alegría, les damos la más cálida bienvenida y agradecemos profundamente su presencia en este día tan especial. Que su compañía haga aún más memorable la celebración del bautizo de Oliver, un día lleno de amor, fe y bendiciones. Gracias por ser parte de este momento tan significativo en su vida.
+                Con el corazón lleno de alegría, les damos la más cálida bienvenida y agradecemos profundamente su presencia en este día tan especial. Que su compañía haga aún más memorable la celebración del bautizo de Oliver Ferran, un día lleno de amor, fe y bendiciones. Gracias por ser parte de este momento tan significativo en su vida.
             </p>
         </section>
 
@@ -429,9 +445,9 @@
                 Y sus Padrinos
                 <div class="sparkle" style="top:-5px; left:-20px; animation-delay:0.5s;"></div>
             </div>
-            <div class="anim-element anim-fade-up delay-4 info-data-script" style="font-size: 36px;">Ximena Núñez Herrera</div>
+            <div class="anim-element anim-fade-up delay-4 info-data-script" style="font-size: 30px;">Ximena Núñez Herrera</div>
             <div class="anim-element anim-fade-up delay-4 amp" style="font-size: 16px;">&</div>
-            <div class="anim-element anim-fade-up delay-4 info-data-script" style="font-size: 36px;">Antonio Cervantes Peláez</div>
+            <div class="anim-element anim-fade-up delay-4 info-data-script" style="font-size: 30px;">Antonio Cervantes Peláez</div>
         </section>
 
         <!-- Itinerario -->
@@ -444,7 +460,7 @@
             </div>
 
             <div class="anim-element anim-fade-up delay-2 info-data" style="margin-top: 20px;">1:00 p.m.</div>
-            <div class="anim-element anim-fade-up delay-3 body-serif" style="font-size: 26px;">Misa</div>
+            <div class="anim-element anim-fade-up delay-3 body-serif" style="font-size: 26px;">Celebración Religiosa</div>
 
             <div class="anim-element anim-fade-up delay-2 info-data" style="margin-top: 35px;">2:00 p.m.</div>
             <div class="anim-element anim-fade-up delay-3 body-serif" style="font-size: 26px;">Recepción en Jardín</div>
@@ -504,9 +520,6 @@
             <p class="anim-element anim-fade-up delay-3 body-serif" style="font-size: 21px;">
                 Se solicita amablemente asistir de vestimenta formal.
             </p>
-            <p class="anim-element anim-fade-up delay-4 body-serif" style="color: var(--beige); font-size: 16px; margin-top: 15px; font-family: 'Montserrat', sans-serif; font-style: normal;">
-                La tonalidad del evento es en verde y beige.
-            </p>
         </section>
 
         <!-- Mesa de Regalos -->
@@ -519,7 +532,7 @@
             </div>
             <div class="anim-element anim-fade-up delay-2 info-data" style="font-size: 34px;">Sugerencias de Regalo</div>
             <p class="anim-element anim-fade-up delay-3 body-serif" style="margin: 20px auto 10px auto; font-size: 20px;">
-                Tu presencia es nuestro mayor regalo, pero si deseas tener un detalle con Oliver, hemos preparado esta opción:
+                Tu presencia es nuestro mayor regalo, pero si deseas tener un detalle con Oliver Ferran, hemos preparado esta opción:
             </p>
             <a href="https://www.amazon.com.mx/registries/gl/guest-view/3KPBYNIQ4UG2A?ref_=cm_sw_r_apin_ggr-subnav-share_Z6STGWJ3SEE3MFY85J2B&language=en-US" target="_blank" class="anim-element anim-fade-up delay-4 btn-solid">Amazon</a>
         </section>
@@ -572,7 +585,7 @@
                 </div>
                 <div class="anim-element anim-zoom delay-2 ticket-card">
                     <div class="tag-line" style="margin-bottom: 20px;">Boleto Especial</div>
-                    <div style="font-family: 'Cormorant Garamond', serif; font-size: 28px; color: var(--accent); font-style: italic; margin-bottom: 15px; font-weight: 500; line-height: 1.2;">Invitado Especial</div>
+                    <div style="font-family: 'Cormorant Garamond', serif; font-size: 28px; color: var(--accent-text); font-style: italic; margin-bottom: 15px; font-weight: 500; line-height: 1.2;">Invitado Especial</div>
                     <div class="body-serif" style="font-size: 19px; margin: 0 auto 15px auto;">Pases Asignados</div>
                     <div id="ticket-count" style="font-family: 'Cinzel', serif; font-size: 60px; font-weight: 500; color: var(--text-dark); line-height: 1;">0</div>
                     <div style="font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); margin-top: 35px;">Muestra esta pantalla al llegar</div>
@@ -619,12 +632,12 @@
                 <input type="text" id="wish-name" class="input-line" placeholder="De parte de...">
             </div>
             <div class="anim-element anim-fade-up delay-4 form-group">
-                <textarea id="wish-message" class="input-line" placeholder="Deja un lindo mensaje para Oliver..."></textarea>
+                <textarea id="wish-message" class="input-line" placeholder="Deja un lindo mensaje para Oliver Ferran..."></textarea>
             </div>
             <button onclick="sendWish()" class="anim-element anim-fade-up delay-4 btn-solid" style="margin: 10px 0 40px 0;">Enviar Mensaje</button>
 
-            <div class="anim-element anim-fade-up delay-4" style="font-family: 'Pinyon Script', cursive; font-size: 55px; color: var(--accent); line-height: 1;">
-                Con amor, Oliver
+            <div class="anim-element anim-fade-up delay-4 closing-sign">
+                Con amor,<br>Oliver Ferran
             </div>
         </section>
 
@@ -796,7 +809,7 @@
                 alert("Por favor, ingresa tu nombre y tu mensaje.");
                 return;
             }
-            const message = encodeURIComponent(`Hola, soy ${name}. Les envío este mensaje con mucho cariño para Oliver:\n\n"${wish}"`);
+            const message = encodeURIComponent(`Hola, soy ${name}. Les envío este mensaje con mucho cariño para Oliver Ferran:\n\n"${wish}"`);
             window.open(`https://wa.me/${telefonoWhatsApp}?text=${message}`, '_blank');
         }
     </script>
